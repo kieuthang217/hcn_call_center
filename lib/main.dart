@@ -6,7 +6,7 @@ import 'package:hcn_call_center/phonebook.dart';
 import 'package:hcn_call_center/recently.dart';
 import 'package:hcn_call_center/voicemail.dart';
 import 'favorite.dart';
-import 'keyboard.dart';
+import 'binh/keyboard.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -29,11 +29,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var _currentIndex = 0;
   int index = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static  List<Widget> _widgetOptions = <Widget>[
     Favorites(),
     Recently(),
     PhoneBook(),
-    KeyBoard(),
+    Calculator(),
     Voicemail(),
   ];
 
