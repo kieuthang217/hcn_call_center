@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
 class Recently extends StatefulWidget {
   const Recently({Key? key}) : super(key: key);
 
@@ -10,6 +12,15 @@ class Recently extends StatefulWidget {
 }
 
 class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
+
+  Widget deleteBgItem(){
+    return Container(
+      alignment: Alignment.centerRight,
+      padding: EdgeInsets.only(right: 20),
+      color: Colors.red,
+      child: Icon(Icons.delete,color: Colors.white,),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -87,6 +98,7 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
               ),
               Expanded(
                   child: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
                 controller: tabController,
                 children: [
                   ListView.builder(
@@ -94,15 +106,21 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                     itemCount: 20,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return Card(
-                        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                        child: ListTile(
-                          leading: Icon(Icons.add_ic_call_rounded),
-                          title: Text("Số điện thoại ${index + 1}"),
-                          subtitle: Text("iPhone ${index + 1}"),
-                          trailing: Transform.rotate(
-                          angle: math.pi,
-                          child: Icon(Icons.error_outline_sharp)),
+                      return Dismissible(
+                        onDismissed: (direction){
+                        },
+                        background: deleteBgItem(),
+                        key: Key(toString()),
+                        child: Card(
+                          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          child: ListTile(
+                            leading: Icon(Icons.add_ic_call_rounded),
+                            title: Text("Số điện thoại ${index + 1}"),
+                            subtitle: Text("iPhone ${index + 1}"),
+                            trailing: Transform.rotate(
+                                angle: math.pi,
+                                child: Icon(Icons.error_outline_sharp)),
+                          ),
                         ),
                       );
                     },
@@ -112,13 +130,20 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                       shrinkWrap: true,
                       itemCount: 20,
                       itemBuilder: (context, index) {
-                        return Card(
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                          child: ListTile(
-                            title: Text("Số điện thoại ${index + 1}"),
-                            subtitle: Text("iPhone ${index + 1}"),
-                            trailing: Icon(Icons.error_outline_sharp),
+                        return Dismissible(
+                          onDismissed: (direction){
+
+                          },
+                          background: deleteBgItem(),
+                          key: Key(toString()),
+                          child: Card(
+                            margin: EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 10),
+                            child: ListTile(
+                              title: Text("Số điện thoại ${index + 1}"),
+                              subtitle: Text("iPhone ${index + 1}"),
+                              trailing: Icon(Icons.error_outline_sharp),
+                            ),
                           ),
                         );
                       }),
