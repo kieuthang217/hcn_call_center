@@ -85,18 +85,14 @@ class _CalculatorState1 extends State<Calculator1> {
                     child: Material(
                       color: Colors.grey,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Calculator2() ),
+                          );},
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            IconButton(
-                              icon: const Icon(Icons.apps),
-                              color: Colors.white,
-                              onPressed: () {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => Calculator2() ),
-                                );},
-                            ),
+                            Icon(Icons.apps , color: Colors.white,size: 40,),
                           ],
                         ),
                       ),
@@ -122,6 +118,48 @@ class _CalculatorState1 extends State<Calculator1> {
                 ),
               ],
             ),
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                 SizedBox(
+                  child: Text(
+                    'tắt tiếng',
+                    style: TextStyle(
+                      fontFamily: 'Arial',
+                      fontSize: 18,
+                      color: Colors.black,
+                      height: 1,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  child: Text(
+                    'bàn phím ',
+                    style: TextStyle(
+                      fontFamily: 'Arial',
+                      fontSize: 18,
+                      color: Colors.black,
+                      height: 1,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  child: Text(
+                    'loa ngoài',
+                    style: TextStyle(
+                      fontFamily: 'Arial',
+                      fontSize: 18,
+                      color: Colors.black,
+                      height: 1,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 50,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -130,7 +168,41 @@ class _CalculatorState1 extends State<Calculator1> {
                   size: Size(66, 65),
                   child: ClipOval(
                     child: Material(
+                      color: Colors.white,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.call_end ,size: 35, color: Colors.white,),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox.fromSize(
+                  size: Size(66, 65),
+                  child: ClipOval(
+                    child: Material(
                       color: Colors.red,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.call_end ,size: 35, color: Colors.white,),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox.fromSize(
+                  size: Size(66, 65),
+                  child: ClipOval(
+                    child: Material(
+                      color: Colors.white,
                       child: InkWell(
                         onTap: () {},
                         child: Column(

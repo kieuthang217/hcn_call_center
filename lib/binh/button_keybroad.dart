@@ -311,8 +311,27 @@ class _CalculatorState2 extends State<Calculator2> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                SizedBox(),
-                SizedBox(),
+                SizedBox.fromSize(
+                  size: Size(66, 65),
+                  child: ClipOval(
+                    child: Material(
+                      color: Colors.white,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            IconButton(
+                              icon: const Icon(Icons.call_end),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox.fromSize(
                   size: Size(66, 65),
                   child: ClipOval(
