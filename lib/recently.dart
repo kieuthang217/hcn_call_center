@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:hcn_call_center/information.dart';
+
 class Recently extends StatefulWidget {
   const Recently({Key? key}) : super(key: key);
 
@@ -35,7 +37,8 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                 child: Text(
                   "Sửa",
                   style: TextStyle(fontSize: 20, color: Colors.blueAccent),
-                )),
+                ),
+            ),
           ),
           Column(
             children: [
@@ -119,7 +122,13 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                             subtitle: Text("iPhone ${index + 1}"),
                             trailing: Transform.rotate(
                                 angle: math.pi,
-                                child: Icon(Icons.error_outline_sharp)),
+                                child: GestureDetector(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Information()));
+                                  },
+                                    child: Icon(Icons.error_outline_sharp),
+                                ),
+                            ),
                           ),
                         ),
                       );
