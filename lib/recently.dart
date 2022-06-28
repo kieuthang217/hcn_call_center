@@ -14,32 +14,35 @@ class Recently extends StatefulWidget {
 }
 
 class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
-
-  Widget deleteBgItem(){
+  Widget deleteBgItem() {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 20),
       color: Colors.red,
-      child: Icon(Icons.delete,color: Colors.white,),
+      child: Icon(
+        Icons.delete,
+        color: Colors.white,
+      ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(
-            top: 15,
-            right: 15,
-            child: InkWell(
-                onTap: () {},
-                child: Text(
-                  "Sửa",
-                  style: TextStyle(fontSize: 20, color: Colors.blueAccent),
-                ),
-            ),
-          ),
+          // Positioned(
+          //   top: 15,
+          //   right: 15,
+          //   child: InkWell(
+          //     onTap: () {},
+          //     child: Text(
+          //       "Sửa",
+          //       style: TextStyle(fontSize: 20, color: Colors.blueAccent),
+          //     ),
+          //   ),
+          // ),
           Column(
             children: [
               SizedBox(
@@ -101,7 +104,7 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
               ),
               Expanded(
                   child: TabBarView(
-                    physics: NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 controller: tabController,
                 children: [
                   ListView.builder(
@@ -110,24 +113,27 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return Dismissible(
-                        onDismissed: (direction){
-                        },
+                        onDismissed: (direction) {},
                         background: deleteBgItem(),
                         key: Key(toString()),
                         child: Card(
-                          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 10),
                           child: ListTile(
                             leading: Icon(Icons.add_ic_call_rounded),
                             title: Text("Số điện thoại ${index + 1}"),
                             subtitle: Text("iPhone ${index + 1}"),
                             trailing: Transform.rotate(
-                                angle: math.pi,
-                                child: GestureDetector(
-                                  onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Information()));
-                                  },
-                                    child: Icon(Icons.error_outline_sharp),
-                                ),
+                              angle: math.pi,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Information()));
+                                },
+                                child: Icon(Icons.error_outline_sharp),
+                              ),
                             ),
                           ),
                         ),
@@ -140,9 +146,7 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                       itemCount: 20,
                       itemBuilder: (context, index) {
                         return Dismissible(
-                          onDismissed: (direction){
-
-                          },
+                          onDismissed: (direction) {},
                           background: deleteBgItem(),
                           key: Key(toString()),
                           child: Card(
@@ -151,7 +155,18 @@ class _RecentlyState extends State<Recently> with TickerProviderStateMixin {
                             child: ListTile(
                               title: Text("Số điện thoại ${index + 1}"),
                               subtitle: Text("iPhone ${index + 1}"),
-                              trailing: Icon(Icons.error_outline_sharp),
+                              trailing: Transform.rotate(
+                                angle: math.pi,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Information()));
+                                  },
+                                  child: Icon(Icons.error_outline_sharp),
+                                ),
+                              ),
                             ),
                           ),
                         );

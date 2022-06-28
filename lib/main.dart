@@ -41,33 +41,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         backgroundColor: Colors.white30,
         type: BottomNavigationBarType.fixed ,
         items: [
           BottomNavigationBarItem(
          backgroundColor: Colors.blue,
-            icon: Icon(Icons.star,size: 30,color: Colors.black45),
+            icon: Icon(Icons.star,size: 30),
             label: "Mục ưa thích",
 
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.blue,
-              icon: Icon(Icons.access_time_filled_sharp,size: 30,color: Colors.black45,),
+              icon: Icon(Icons.access_time_filled_sharp,size: 30),
               label: "Gần đây",
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.blue,
-              icon: Icon(Icons.account_circle,size: 30,color: Colors.black45),
+              icon: Icon(Icons.account_circle,size: 30),
               label: "Danh bạ",
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.blue,
-              icon: Icon(Icons.keyboard_alt_rounded,size: 30,color: Colors.black45),
+              icon: Icon(Icons.keyboard_alt_rounded,size: 30),
               label: "Bàn phím",
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.blue,
-              icon: Icon(Icons.voicemail_outlined,size: 30,color: Colors.black45),
+              icon: Icon(Icons.voicemail_outlined,size: 30,),
               label: "Thư thoại",
           ),
         ],

@@ -74,9 +74,10 @@ class _InformationState extends State<Information> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 30, 0, 0),
+                  padding: EdgeInsets.fromLTRB(10, 30, 1, 0),
                   child: Container(
                     height: 70,
                     width: 90,
@@ -186,7 +187,7 @@ class _InformationState extends State<Information> {
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(5, 13, 0, 0),
+                        padding: EdgeInsets.fromLTRB(5, 13, 10, 0),
                         child: Column(
                           children: [
                             Icon(
@@ -195,14 +196,15 @@ class _InformationState extends State<Information> {
                               color: Colors.blue,
                             ),
                             Padding(
-                                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                child: Text(
-                                  "gửi thư",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.w500),
-                                )),
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text(
+                                "gửi thư",
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
                           ],
                         ),
                       ),
