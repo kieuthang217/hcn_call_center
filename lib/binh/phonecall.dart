@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hcn_call_center/binh/button_keybroad.dart';
+import 'package:hcn_call_center/binh/keyboard.dart';
 
 class Calculator1 extends StatefulWidget {
   @override
@@ -87,7 +88,7 @@ class _CalculatorState1 extends State<Calculator1> {
                       child: InkWell(
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Calculator2() ),
+                            MaterialPageRoute(builder: (context) => Calculator5() ),
                           );},
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +188,8 @@ class _CalculatorState1 extends State<Calculator1> {
                     child: Material(
                       color: Colors.red,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                        },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
