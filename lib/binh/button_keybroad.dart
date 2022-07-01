@@ -107,7 +107,8 @@ class _CalculatorState extends State<Calculator5> {
                     onTap: () {
                       FocusScope.of(context).requestFocus(FocusNode());
                     },
-                    child: Text('$text',
+                    child: Text(
+                      '$inputNumber',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         color: Colors.black,
@@ -122,26 +123,26 @@ class _CalculatorState extends State<Calculator5> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 calcbutto('1','', Colors.grey, Colors.white),
-                calcbutto('2','A B C',Colors.grey, Colors.white),
-                calcbutto('3','D E F', Colors.grey, Colors.white),
+                calcbutto('2','',Colors.grey, Colors.white),
+                calcbutto('3','', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('4','G H I', Colors.grey, Colors.white),
-                calcbutto('5','J K L', Colors.grey, Colors.white),
-                calcbutto('6','M N O', Colors.grey, Colors.white),
+                calcbutto('4','', Colors.grey, Colors.white),
+                calcbutto('5','', Colors.grey, Colors.white),
+                calcbutto('6','', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('7','P Q R S', Colors.grey, Colors.white),
-                calcbutto('8','T U V' , Colors.grey, Colors.white),
-                calcbutto('9','W X Y Z', Colors.grey, Colors.white),
+                calcbutto('7','', Colors.grey, Colors.white),
+                calcbutto('8','' , Colors.grey, Colors.white),
+                calcbutto('9','', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(height: 10,),
@@ -231,8 +232,8 @@ class _CalculatorState extends State<Calculator5> {
     );
   }
 
-  //Calculator logic
-  dynamic text = '0';
+  //logic
+  dynamic inputNumber = '0';
   double numOne = 0;
   double numTwo = 0;
 
@@ -243,73 +244,23 @@ class _CalculatorState extends State<Calculator5> {
 
   void calculation(btnText) {
     if (btnText == 'AC') {
-      text = '0';
+      inputNumber = '0';
       numOne = 0;
       numTwo = 0;
       result = '';
       finalResult = '0';
       opr = '';
       preOpr = '';
-    } else if (opr == '=' && btnText == '=') {
-      if (preOpr == '+') {
-        finalResult = add();
-      } else if (preOpr == '-') {
-        finalResult = sub();
-      } else if (preOpr == 'x') {
-        finalResult = mul();
-      } else if (preOpr == '/') {
-        finalResult = div();
-      }
-    } else
-    if (btnText == '+' || btnText == '-' || btnText == 'x' || btnText == '/' ||
-        btnText == '=') {
-      if (numOne == 0) {
-        numOne = double.parse(result);
-      } else {
-        numTwo = double.parse(result);
-      }
-
-      if (opr == '+') {
-        finalResult = add();
-      } else if (opr == '-') {
-        finalResult = sub();
-      } else if (opr == 'x') {
-        finalResult = mul();
-      } else if (opr == '/') {
-        finalResult = div();
-      }
-      preOpr = opr;
-      opr = btnText;
-      result = '';
-    }
-    else if (btnText == '%') {
-      result = numOne / 100;
-      finalResult = doesContainDecimal(result);
-    } else if (btnText == '.') {
-      if (!result.toString().contains('.')) {
-        result = result.toString() + '.';
-      }
+    } else if (btnText == '%') {
       finalResult = result;
-    }
-
-    else if (btnText == '+/-') {
-      result.toString().startsWith('-') ?
-      result = result.toString().substring(1) : result =
-          '-' + result.toString();
-      finalResult = result;
-    }
-
-    else {
+    } else {
       result = result + btnText;
       finalResult = result;
     }
-
-
     setState(() {
-      text = finalResult;
+      inputNumber = finalResult;
     });
   }
-
 
   String add() {
     result = (numOne + numTwo).toString();
@@ -335,7 +286,6 @@ class _CalculatorState extends State<Calculator5> {
     return doesContainDecimal(result);
   }
 
-
   String doesContainDecimal(dynamic result) {
     if (result.toString().contains('.')) {
       List<String> splitDecimal = result.toString().split('.');
@@ -344,7 +294,4 @@ class _CalculatorState extends State<Calculator5> {
     }
     return result;
   }
-
 }
-
-

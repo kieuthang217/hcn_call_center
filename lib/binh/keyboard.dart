@@ -152,8 +152,8 @@ class _CalculatorState extends State<Calculator> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 calcbutto('1', '', Colors.grey, Colors.white),
-                calcbutto('2', 'A B C', Colors.grey, Colors.white),
-                calcbutto('3', 'D E F', Colors.grey, Colors.white),
+                calcbutto('2', '', Colors.grey, Colors.white),
+                calcbutto('3', '', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(
@@ -162,9 +162,9 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('4', 'G H I', Colors.grey, Colors.white),
-                calcbutto('5', 'J K L', Colors.grey, Colors.white),
-                calcbutto('6', 'M N O', Colors.grey, Colors.white),
+                calcbutto('4', '', Colors.grey, Colors.white),
+                calcbutto('5', '', Colors.grey, Colors.white),
+                calcbutto('6', '', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(
@@ -173,9 +173,9 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('7', 'P Q R S', Colors.grey, Colors.white),
-                calcbutto('8', 'T U V', Colors.grey, Colors.white),
-                calcbutto('9', 'W X Y Z', Colors.grey, Colors.white),
+                calcbutto('7', '', Colors.grey, Colors.white),
+                calcbutto('8', '', Colors.grey, Colors.white),
+                calcbutto('9', '', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(
@@ -288,7 +288,7 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
-  //Calculator logic
+  //logic
   dynamic inputNumber = '0';
   double numOne = 0;
   double numTwo = 0;
