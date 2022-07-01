@@ -16,7 +16,8 @@ class _CalculatorState extends State<Calculator> {
         onPressed: () {
           calculation(btntxt);
         },
-        child: Text('$btntxt',
+        child: Text(
+          '$btntxt',
           style: TextStyle(
             fontSize: 35,
             color: txtcolor,
@@ -28,65 +29,93 @@ class _CalculatorState extends State<Calculator> {
       ),
     );
   }
-  Widget calcbutto( String btntxt,String btntx,Color btncolor, Color txtcolor) {
-    return Stack(
-        children: <Widget>[
-          SizedBox.fromSize(
-            size: Size(66, 65),
-            child: ClipOval(
-              child: Material(
-                color: Colors.grey,
-                child: InkWell(
-                  onTap: () {
-                    calculation(btntxt);
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('$btntxt',
-                        style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
-                      Text('$btntx',
-                        style: TextStyle(fontSize: 10,color: Colors.white,fontWeight: FontWeight.bold),),
-                    ],
+
+  Widget calcbutto(
+      String btntxt, String btntx, Color btncolor, Color txtcolor) {
+    return Stack(children: <Widget>[
+      SizedBox.fromSize(
+        size: Size(66, 65),
+        child: ClipOval(
+          child: Material(
+            color: Colors.grey,
+            child: InkWell(
+              onTap: () {
+                calculation(btntxt);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    '$btntxt',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
-                ),
+                  Text(
+                    '$btntx',
+                    style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
             ),
           ),
-    ]
-    );
+        ),
+      ),
+    ]);
   }
-  Widget calcbutt( String btntxt,String btntx,Color btncolor, Color txtcolor) {
-    return Stack(
-        children: <Widget>[
-          SizedBox.fromSize(
-            size: Size(66, 65),
-            child: ClipOval(
-              child: Material(
-                color: Colors.grey,
-                child: InkWell(
-                  onTap: () {
-                    calculation(btntxt);
-                  },
-                  onLongPress: () {
-                    calculation(btntx);
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('$btntxt',
-                        style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
-                      Text('$btntx',
-                        style: TextStyle(fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold),),
-                    ],
+
+  Widget calcbutt(String btntxt, String btntx, Color btncolor, Color txtcolor) {
+    return Stack(children: <Widget>[
+      SizedBox.fromSize(
+        size: Size(66, 65),
+        child: ClipOval(
+          child: Material(
+            color: Colors.grey,
+            child: InkWell(
+              onTap: () {
+                calculation(btntxt);
+              },
+              onLongPress: () {
+                calculation(btntx);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    '$btntxt',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
-                ),
+                  Text(
+                    btntx,
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
             ),
           ),
-        ]
-    );
+        ),
+      ),
+    ]);
   }
+
+  // var numberController = TextEditingController();
+  //
+  // @override
+  // void initState() {
+  //   numberController
+  //   super.initState();
+  //
+  // }
   @override
   Widget build(BuildContext context) {
     //Calculator
@@ -107,7 +136,8 @@ class _CalculatorState extends State<Calculator> {
                     onTap: () {
                       FocusScope.of(context).requestFocus(FocusNode());
                     },
-                    child: Text('$text',
+                    child: Text(
+                      '$inputNumber',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         color: Colors.black,
@@ -121,39 +151,47 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('1','', Colors.grey, Colors.white),
-                calcbutto('2','A B C',Colors.grey, Colors.white),
-                calcbutto('3','D E F', Colors.grey, Colors.white),
+                calcbutto('1', '', Colors.grey, Colors.white),
+                calcbutto('2', 'A B C', Colors.grey, Colors.white),
+                calcbutto('3', 'D E F', Colors.grey, Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('4','G H I', Colors.grey, Colors.white),
-                calcbutto('5','J K L', Colors.grey, Colors.white),
-                calcbutto('6','M N O', Colors.grey, Colors.white),
+                calcbutto('4', 'G H I', Colors.grey, Colors.white),
+                calcbutto('5', 'J K L', Colors.grey, Colors.white),
+                calcbutto('6', 'M N O', Colors.grey, Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('7','P Q R S', Colors.grey, Colors.white),
-                calcbutto('8','T U V' , Colors.grey, Colors.white),
-                calcbutto('9','W X Y Z', Colors.grey, Colors.white),
+                calcbutto('7', 'P Q R S', Colors.grey, Colors.white),
+                calcbutto('8', 'T U V', Colors.grey, Colors.white),
+                calcbutto('9', 'W X Y Z', Colors.grey, Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutto('*','', Colors.grey, Colors.white),
-                calcbutt('0','+',  Colors.grey, Colors.white),
-                calcbutto('#','', Colors.grey, Colors.white),
+                calcbutto('*', '', Colors.grey, Colors.white),
+                calcbutt('0', '+', Colors.grey, Colors.white),
+                calcbutto('#', '', Colors.grey, Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -171,7 +209,11 @@ class _CalculatorState extends State<Calculator> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(Icons.call, size: 35, color: Colors.white,),
+                            Icon(
+                              Icons.call,
+                              size: 35,
+                              color: Colors.white,
+                            ),
                           ],
                         ),
                       ),
@@ -185,7 +227,8 @@ class _CalculatorState extends State<Calculator> {
                       color: Colors.green,
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context,
+                          Navigator.push(
+                            context,
                             MaterialPageRoute(
                                 builder: (context) => Calculator1()),
                           );
@@ -193,8 +236,11 @@ class _CalculatorState extends State<Calculator> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(Icons.call, size: 35, color: Colors.white,),
-
+                            Icon(
+                              Icons.call,
+                              size: 35,
+                              color: Colors.white,
+                            ),
                           ],
                         ),
                       ),
@@ -215,7 +261,15 @@ class _CalculatorState extends State<Calculator> {
                               icon: const Icon(Icons.backspace),
                               color: Colors.grey,
                               iconSize: 30,
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  if (inputNumber != null &&
+                                      inputNumber.length > 0) {
+                                    inputNumber = inputNumber.substring(
+                                        0, inputNumber.length - 1);
+                                  }
+                                });
+                              },
                             ),
                           ],
                         ),
@@ -225,7 +279,9 @@ class _CalculatorState extends State<Calculator> {
                 ),
               ],
             ),
-            SizedBox(height: 200,),
+            SizedBox(
+              height: 200,
+            ),
           ],
         ),
       ),
@@ -233,7 +289,7 @@ class _CalculatorState extends State<Calculator> {
   }
 
   //Calculator logic
-  dynamic text = '0';
+  dynamic inputNumber = '0';
   double numOne = 0;
   double numTwo = 0;
 
@@ -244,73 +300,23 @@ class _CalculatorState extends State<Calculator> {
 
   void calculation(btnText) {
     if (btnText == 'AC') {
-      text = '0';
+      inputNumber = '0';
       numOne = 0;
       numTwo = 0;
       result = '';
       finalResult = '0';
       opr = '';
       preOpr = '';
-    } else if (opr == '=' && btnText == '=') {
-      if (preOpr == '+') {
-        finalResult = add();
-      } else if (preOpr == '-') {
-        finalResult = sub();
-      } else if (preOpr == 'x') {
-        finalResult = mul();
-      } else if (preOpr == '/') {
-        finalResult = div();
-      }
-    } else
-    if (btnText == '+' || btnText == '-' || btnText == 'x' || btnText == '/' ||
-        btnText == '=') {
-      if (numOne == 0) {
-        numOne = double.parse(result);
-      } else {
-        numTwo = double.parse(result);
-      }
-
-      if (opr == '+') {
-        finalResult = add();
-      } else if (opr == '-') {
-        finalResult = sub();
-      } else if (opr == 'x') {
-        finalResult = mul();
-      } else if (opr == '/') {
-        finalResult = div();
-      }
-      preOpr = opr;
-      opr = btnText;
-      result = '';
-    }
-    else if (btnText == '%') {
-      result = numOne / 100;
-      finalResult = doesContainDecimal(result);
-    } else if (btnText == '.') {
-      if (!result.toString().contains('.')) {
-        result = result.toString() + '.';
-      }
+    } else if (btnText == '%') {
       finalResult = result;
-    }
-
-    else if (btnText == '+/-') {
-      result.toString().startsWith('-') ?
-      result = result.toString().substring(1) : result =
-          '-' + result.toString();
-      finalResult = result;
-    }
-
-    else {
+    } else {
       result = result + btnText;
       finalResult = result;
     }
-
-
     setState(() {
-      text = finalResult;
+      inputNumber = finalResult;
     });
   }
-
 
   String add() {
     result = (numOne + numTwo).toString();
@@ -336,7 +342,6 @@ class _CalculatorState extends State<Calculator> {
     return doesContainDecimal(result);
   }
 
-
   String doesContainDecimal(dynamic result) {
     if (result.toString().contains('.')) {
       List<String> splitDecimal = result.toString().split('.');
@@ -345,7 +350,4 @@ class _CalculatorState extends State<Calculator> {
     }
     return result;
   }
-
 }
-
-
