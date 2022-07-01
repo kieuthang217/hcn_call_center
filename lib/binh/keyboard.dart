@@ -77,7 +77,7 @@ class _CalculatorState extends State<Calculator> {
                       Text('$btntxt',
                         style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
                       Text('$btntx',
-                        style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
+                        style: TextStyle(fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -87,16 +87,11 @@ class _CalculatorState extends State<Calculator> {
         ]
     );
   }
-
   @override
   Widget build(BuildContext context) {
     //Calculator
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   title: Text('Calculator'),
-      //   backgroundColor: Colors.black,
-      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5),
         child: Column(
@@ -108,8 +103,10 @@ class _CalculatorState extends State<Calculator> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
+                  GestureDetector(
+                    onTap: () {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                    },
                     child: Text('$text',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -151,9 +148,9 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                calcbutton('*', Colors.grey, Colors.white),
-                calcbutt('0','+',  Colors.grey, Colors.white,),
-                calcbutton('#', Colors.grey, Colors.white),
+                calcbutto('*','', Colors.grey, Colors.white),
+                calcbutt('0','+',  Colors.grey, Colors.white),
+                calcbutto('#','', Colors.grey, Colors.white),
               ],
             ),
             SizedBox(height: 10,),
@@ -197,6 +194,7 @@ class _CalculatorState extends State<Calculator> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(Icons.call, size: 35, color: Colors.white,),
+
                           ],
                         ),
                       ),
