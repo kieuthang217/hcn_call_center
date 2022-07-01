@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hcn_call_center">
    <application
-        android:label="hcn_call_center"
+        android:label="Phone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
